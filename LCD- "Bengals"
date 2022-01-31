@@ -1,0 +1,54 @@
+//LCD BOARD- Bengals and scrolling 
+
+#include <LiquidCrystal.h>
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+
+
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup() {
+  
+  lcd.begin(16, 2);
+  
+  
+   for(int i= 0; i<= 3; i++)
+{ 
+  lcd.clear(); 
+  lcd.setCursor(i,0); 
+  lcd.print("Welcome to");
+  delay(300); 
+} 
+  lcd.setCursor(4,1);
+  lcd.print(" +TQL+"); 
+
+  delay(5000); 
+  lcd.clear(); 
+lcd.print("Go Bengals!");
+
+ //LED Lights
+  
+    pinMode(13, OUTPUT);
+    pinMode(8, OUTPUT);
+}
+
+void loop() {
+  
+ 
+lcd.setCursor(2,1); 
+lcd.print("Who dey  ");
+
+ 
+  for (int positionCounter = 0; positionCounter < 4; positionCounter++) {
+    
+    lcd.scrollDisplayRight();
+    
+    delay(500);
+  }
+
+  
+  for (int positionCounter = 4; positionCounter > 0; positionCounter--) {
+    
+    lcd.scrollDisplayLeft();
+    
+    delay(500);
